@@ -1,0 +1,112 @@
+import os
+import csv
+
+# open and read csv
+
+csvpath = os.path.join('Resources', 'election_data.csv')
+with open(csvpath,'r') as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=',')
+    csv_header = next(csvreader)
+    print(f"Header:{csv_header}")
+
+    # Declaring variables
+
+    votes = []
+    county = []
+    candidates = []
+
+    # Declaring variables for each candidate
+    Charles_Casper_Stockham = []
+    Diana_DeGette = []
+    Raymon_Anthony_Doane = []
+
+    # Declaring variables for each candidate votes
+    Charles_Casper_Stockham_votes = []
+    Diana_DeGette_votes = []
+    Raymon_Anthony_Doane_votes = []
+
+    # read each row of data after the header
+    for row in csvreader:
+        votes.append(int(row[0]))
+        county.append(row[1])
+        candidates.append(row[2])
+
+    # Vote Count
+
+total_votes = (len(votes))
+# print(total_votes)
+
+    # votes by each candidate
+for candidate in candidates:
+    if candidate == 'Charles Gasper Stockham':
+        Charles_Casper_Stockham.append(candidates)
+        Charles_Casper_Stockham_votes = len(Charles_Casper_Stockham)
+
+    elif candidate == "Diana DeGette":
+        Diana_DeGette.append(candidates)
+        Diana_DeGette_votes=len(Diana_DeGette)
+
+    else:
+        Raymon_Anthony_Doane.append(candidates)
+        Raymon_Anthony_Doane_votes=len(Raymon_Anthony_Doane)
+
+    # print(Charles_Casper_Stockham_vote)
+    # print(Diana_DeGette_vote)
+    # print(Raymon_Anthony_Doane_vote)
+
+# Percentages
+Charles_Casper_Stockham_percent = round(((Charles_Casper_Stockham_votes/total_votes)*100),3)
+Diana_DeGette_percent = round(((Diana_DeGette_votes/total_votes)*100),3)
+Raymon_Anthony_Doane_percent = round(((Raymon_Anthony_Doane_votes/total_votes)*100),3)
+
+    # print(Charles_Casper_Stockham_percent)
+    # print(Diana_DeGette_percent)
+    # print(Raymon_Anthony_Doane_percen)
+    
+    # winner
+if Charles_Casper_Stockham_percent > max(Diana_DeGette_percent, Raymon_Anthony_Doane_percent):
+    winner = "Charles_Casper_Stockham"
+
+elif Diana_DeGette_percent > max(Charles_Casper_Stockham_percent,Raymon_Anthony_Doane_percent):
+    winner = "Diana_DeGette"
+else:
+    winner = "Raymond_Anthony_Doane"
+
+    # print statement revealing election results
+
+print(f"Election Results")
+print(f" --------------------------")
+print(f"Total Votes: {total_votes} -------------------------")
+
+Charles_Casper_Stockham_percent: (Charles_Casper_Stockham_percent)%(Charles_Casper_Stockham_votes)
+
+Diana_DeGette: (Diana_DeGette_percent)%(Diana_DeGette_votes)
+
+Raymon_Anthony_Doane: (Raymon_Anthony_Doane_percent)%(Raymon_Anthony_Doane_votes)
+
+print("-----------------------------------")
+
+print(f"Winner: {winner}")
+
+print(f"----------------------------------")
+
+# output to a text file
+
+file = open("output.txt","w")
+
+file.write(f"Election Results--------------------")
+
+print(f"Total Votes: {total_votes} -------------------------")
+
+Charles_Casper_Stockham_percent: (Charles_Casper_Stockham_percent)%(Charles_Casper_Stockham_votes)
+
+Diana_DeGette: (Diana_DeGette_percent)%(Diana_DeGette_votes)
+
+Raymon_Anthony_Doane: (Raymon_Anthony_Doane_percent)%(Raymon_Anthony_Doane_votes)
+
+print("-----------------------------------")
+
+print(f"Winner: {winner}")
+
+print(f"----------------------------------")
+
